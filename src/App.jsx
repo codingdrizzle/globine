@@ -43,7 +43,8 @@ function App() {
                     searchQuery.length !== 0 ?
                         Object.values(countries)
                             .sort((a, b) => a.name < b.name ? - 1 : a.name > b.name ? 1 : 0)
-                            .filter((country) => country.name.toLowerCase().includes(searchQuery.trim().toLowerCase() || country.region === filter))
+                            .filter((country) => country.name.toLowerCase().includes(searchQuery.trim().toLowerCase()))
+                            .filter(country => country.region === filter)
                             .map((country) => <CountryCard country={country} />) :
                     filter === 'All' ?
                         Object.values(countries)
