@@ -31,30 +31,36 @@ function App() {
     //}, [countries])
 
     const [searchQuery, setSearchQuery] = useState('');
+    const [filter, setFilter] = useState('All');
 
     const handleSearch = (event) => {
         setSearchQuery(event.target.value);
     };
 
-    const filteredCountries = Object.values(countries)
-        .filter((country) => {
-            return country.name.toLowerCase().includes(searchQuery.toLowerCase());
-        })
+    const handleFiterSelect = (event) => {
+        setFilter(event.target.value)
+    }
 
     return (
-        <Layout searchTrigger={handleSearch}>
+        <Layout searchTrigger={handleSearch} handleFiterSelect={handleFiterSelect}>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-7">
                 {
                     searchQuery.length !== 0 ?
-                        filteredCountries
-                            .map((country) => {
-                                return <CountryCard country={country} />;
-                            }) :
                         Object.values(countries)
-                            .sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0)
-                            .map((country) => {
-                                return <CountryCard country={country} />;
-                            })
+                            .sort((a, b) => a.name < b.name ? - 1 : a.name > b.name ? 1 : 0)
+                            .filter((country) => country.name.toLowerCase().includes(searchQuery.trim().toLowerCase() || country.region === filter))
+                            .map((country) =>  <CountryCard country={country} />) :
+                        filter === 'All' ?
+                            Object.values(countries)
+                                .sort((a, b) => a.name < b.name ? - 1 : a.name > b.name ? 1 : 0)
+                                .map((country) => (<CountryCard country={country} />)) :
+                            Object.values(countries)
+                                .sort((a, b) => a.name < b.name ? - 1 : a.name > b.name ? 1 : 0)
+                                .filter((country) => country.region === filter)
+                                .map((country) => {
+                                    console.log(country.region === filter)
+                                    return (<CountryCard country={country} />)
+                                })
                 }
             </div>
         </Layout>
