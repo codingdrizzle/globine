@@ -7,10 +7,6 @@ import { useState } from 'react';
 import CountryCard from './components/CountryCard';
 import Layout from './components/Layout';
 import countries from './countries.json'
-import ReactPaginate from 'react-paginate';
-
-
-
 
 function App() {
     //const [countries, setCountries] = useState([])
@@ -27,18 +23,17 @@ function App() {
     //}, [])
 
     //useEffect(() => {
-    //    console.log(countries.af)
+    //    console.log(countries)
     //}, [countries])
 
     const [searchQuery, setSearchQuery] = useState('');
     const [filter, setFilter] = useState('All');
 
-    const handleSearch = (event) => {
-        setSearchQuery(event.target.value);
-    };
+    const handleSearch = (event) => setSearchQuery(event.target.value);
 
     const handleFiterSelect = (event) => {
         setFilter(event.target.value)
+        localStorage.setItem('filter', event.target.value);
     }
 
     return (
@@ -49,18 +44,15 @@ function App() {
                         Object.values(countries)
                             .sort((a, b) => a.name < b.name ? - 1 : a.name > b.name ? 1 : 0)
                             .filter((country) => country.name.toLowerCase().includes(searchQuery.trim().toLowerCase() || country.region === filter))
-                            .map((country) =>  <CountryCard country={country} />) :
-                        filter === 'All' ?
-                            Object.values(countries)
-                                .sort((a, b) => a.name < b.name ? - 1 : a.name > b.name ? 1 : 0)
-                                .map((country) => (<CountryCard country={country} />)) :
-                            Object.values(countries)
-                                .sort((a, b) => a.name < b.name ? - 1 : a.name > b.name ? 1 : 0)
-                                .filter((country) => country.region === filter)
-                                .map((country) => {
-                                    console.log(country.region === filter)
-                                    return (<CountryCard country={country} />)
-                                })
+                            .map((country) => <CountryCard country={country} />) :
+                    filter === 'All' ?
+                        Object.values(countries)
+                            .sort((a, b) => a.name < b.name ? - 1 : a.name > b.name ? 1 : 0)
+                            .map((country) => (<CountryCard country={country} />)) :
+                        Object.values(countries)
+                            .sort((a, b) => a.name < b.name ? - 1 : a.name > b.name ? 1 : 0)
+                            .filter((country) => country.region === filter)
+                            .map((country) => (<CountryCard country={country} />))
                 }
             </div>
         </Layout>
