@@ -40,21 +40,30 @@ function App() {
         <Layout searchTrigger={handleSearch} handleFiterSelect={handleFiterSelect}>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-7">
                 {
-                    searchQuery.length !== 0 ?
+                    searchQuery.length !== 0 && filter === 'All' ?
                         Object.values(countries)
                             .sort((a, b) => a.name < b.name ? - 1 : a.name > b.name ? 1 : 0)
-                            .filter(country => country.region === filter)
                             .filter((country) => country.name.toLowerCase().includes(searchQuery.trim().toLowerCase()))
                             .map((country) => <CountryCard country={country} />) :
+                            
                     filter === 'All' ?
+                    Object.values(countries)
+                    .sort((a, b) => a.name < b.name ? - 1 : a.name > b.name ? 1 : 0) 
+                    .map((country) => <CountryCard country={country} />) :
+
+                    searchQuery.length !== 0 && filter !== 'All' ?
                         Object.values(countries)
                             .sort((a, b) => a.name < b.name ? - 1 : a.name > b.name ? 1 : 0)
+                            .filter((country) => country.region === filter)
+                            .filter((country) => country.name.toLowerCase().includes(searchQuery.trim().toLowerCase()))
                             .map((country) => (<CountryCard country={country} />)) :
+
                         Object.values(countries)
                             .sort((a, b) => a.name < b.name ? - 1 : a.name > b.name ? 1 : 0)
                             .filter((country) => country.region === filter)
                             .map((country) => (<CountryCard country={country} />))
                 }
+
             </div>
         </Layout>
     );
