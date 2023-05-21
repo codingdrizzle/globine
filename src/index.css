@@ -16,3 +16,88 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
 }
+
+:root{
+    --primary-blue: #3786FB;
+}
+
+/* Custom Scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-blue)
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    scrollbar-color: var(--primary-blue);
+    border-radius: 12px;
+}
+
+*::-webkit-scrollbar-thumb {
+    scrollbar-color: var(--primary-blue);
+    background-color: var(--primary-blue);
+    border-radius: 30px;
+    border: 3px solid var(--primary-blue);
+}
+/* Custom Scrollbar */
+
+.tab-selected{
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+/*svg#clock {
+    display: block;
+    margin: auto;
+}
+
+.flip-digit {
+    position: relative;
+    perspective: 600px;
+    margin: 0 0.5rem;
+}
+
+.flip-digit-inner {
+    position: relative;
+    width: 4rem;
+    height: 5.5rem;
+    transform-style: preserve-3d;
+    animation: flip 1s forwards;
+}
+
+.flip-digit-top,
+.flip-digit-bottom {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: gra;
+    color: white;
+    font-weight:bold;
+    font-size:x-large;
+}
+
+.flip-digit-bottom {
+    transform: rotateX(-180deg);
+}
+
+@keyframes flip {
+    0% {
+        transform: rotateX(0deg);
+    }
+
+    50% {
+        transform: rotateX(90deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: rotateX(-180deg);
+    }
+}*/

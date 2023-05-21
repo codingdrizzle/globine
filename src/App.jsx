@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { API } from "./api/axios-client";
 import CountryCard from './components/CountryCard';
 import Layout from './components/Layout';
-import Loader from "./helpers/Loader";
+import Loader from "./helpers/Lloader";
 
 function App() {
     const [countries, setCountries] = useState([])
