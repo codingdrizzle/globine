@@ -22,21 +22,21 @@ function DigitalTimeClock() {
     const seconds = formatTime(time.getSeconds());
 
     return (
-        <div className="flex items-center justify-center text-4xl">
+        <div className="flex items-center justify-center text-4xl space-x-1 absolute top-[75%]">
             <div className="flip-digit">
-                <div className="flip-digit-inner">
+                <div className="flip-digit-inner flex bg-gray-200 p-3 rounded-lg">
                     <div className="flip-digit-top">{hours[0]}</div>
                     <div className="flip-digit-bottom">{hours[1]}</div>
                 </div>
             </div>
             <div className="flip-digit">
-                <div className="flip-digit-inner">
+                <div className="flip-digit-inner flex bg-gray-200 p-3 rounded-lg">
                     <div className="flip-digit-top">{minutes[0]}</div>
                     <div className="flip-digit-bottom">{minutes[1]}</div>
                 </div>
             </div>
             <div className="flip-digit">
-                <div className="flip-digit-inner">
+                <div className="flip-digit-inner flex bg-gray-200 p-3 rounded-lg">
                     <div className="flip-digit-top">{seconds[0]}</div>
                     <div className="flip-digit-bottom">{seconds[1]}</div>
                 </div>

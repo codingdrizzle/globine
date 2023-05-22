@@ -10,13 +10,13 @@ function Tabs({ tabs, getTab }) {
     };
 
     return (
-        <div className="flex justify-start w-full h-10">
+        <div className="flex justify-start w-full min-h-10">
             <div className="flex border-b-2 border-gray-300 w-full">
                 {tabs.map((tab, index) => (
                     <button
                         key={index}
                         className={classNames(
-                            'py-2 px-4 font-semibold text-gray-600 border-b-2 border-transparent hover:border-gray-500 focus:outline-none',
+                            'py-2 px-4 font-semibold text-gray-600 border-b-2 hover:border-gray-500 focus:outline-none flex flex-wrap',
                             {
                                 'tab-selected': activeTab === index,
                             }

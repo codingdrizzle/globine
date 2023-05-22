@@ -1,42 +1,37 @@
 import React, { useState, useEffect } from 'react';
 
 const AnalogueTimeClock = () => {
-    const [time, setTime] = useState(new Date());
+
+    function updateClockHands() {
+        const hourHand = document.getElementById("hours");
+        const minuteHand = document.getElementById("minutes");
+        const secondHand = document.getElementById("seconds");
+
+        // Get current time
+        const currentDate = new Date();
+        const currentHours = currentDate.getHours();
+        const currentMinutes = currentDate.getMinutes();
+        const currentSeconds = currentDate.getSeconds();
+
+        // Calculate rotation of hands
+        const hourRotation = 30 * (currentHours % 12) + 0.5 * currentMinutes;
+        const minuteRotation = 6 * currentMinutes + 0.1 * currentSeconds;
+        const secondRotation = 6 * currentSeconds;
+
+        // Update clock hands rotation
+        if (hourHand !== null) hourHand.setAttribute('transform', `rotate(${hourRotation} 250 250)`);
+        if (minuteHand !== null) minuteHand.setAttribute('transform', `rotate(${minuteRotation} 250 250)`);
+        if (secondHand !== null) secondHand.setAttribute('transform', `rotate(${secondRotation} 250 250)`);
+    }
 
     useEffect(() => {
-        const script = document.createElement('script');
-
-        script.src = "../clock-scripts.js";
-        script.async = true;
-
-        document.body.appendChild(script);
-
-        return () => {
-            document.body.removeChild(script);
-        }
-    }, []);
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setTime(new Date());
-        }, 1000);
-
-        return () => {
-            clearInterval(timer);
-        };
-    }, []);
-
-    const formatTime = (value) => {
-        return value < 10 ? `0${value}` : value;
-    };
-
-    const hours = formatTime(time.getHours());
-    const minutes = formatTime(time.getMinutes());
-    const seconds = formatTime(time.getSeconds());
+        updateClockHands();
+        setInterval(updateClockHands, 1000);
+    })
 
     return (
             <svg version="1.1" id="clock" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px"
-                y="0px" width="600px" height="600px" viewBox="50 50 400 500" space="preserve">
+                y="0px" width="400px" height="400px" viewBox="50 50 400 500" space="preserve">
                 <circle id="face" fill="#F4F3ED" cx="243.869" cy="250.796" r="130.8" />
                 <path id="rim" fill="#383838" d="M243.869,101.184c-82.629,0-149.612,66.984-149.612,149.612c0,82.629,66.983,149.612,149.612,149.612
 	S393.48,333.425,393.48,250.796S326.498,101.184,243.869,101.184z M243.869,386.455c-74.922,0-135.659-60.736-135.659-135.659
@@ -254,9 +249,9 @@ const AnalogueTimeClock = () => {
 			l-2.861-24.508c-0.099-1.199,3.479-93.985,3.479-93.985c0.036-1.201-0.117-2.183,0.881-2.183c0.999,0,0.847,0.982,0.882,2.183
 			L247.862,249.75z" />
                 <g id="seconds">
-                    <line fill="none" stroke="#FF00FF" stroke-miterlimit="10" x1="243.5" y1="143" x2="243.5" y2="266" />
-                    <circle fill="none" stroke="#FF00FF" stroke-miterlimit="10" cx="243.5" cy="271" r="5" />
-                    <circle fill="#FF00FF" cx="243.5" cy="251" r="3.917" />
+                    <line fill="none" stroke="#3786FB" stroke-miterlimit="10" x1="243.5" y1="143" x2="243.5" y2="266" />
+                    <circle fill="none" stroke="#3786FB" stroke-miterlimit="10" cx="243.5" cy="271" r="5" />
+                    <circle fill="#3786FB" cx="243.5" cy="251" r="3.917" />
                 </g>
             </svg>
     );
