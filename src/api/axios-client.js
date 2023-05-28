@@ -5,10 +5,10 @@ const token = process.env.REACT_APP_API_TOKEN
 
 export const axiosClient = axios.create({
     baseURL: url,
-    timeout: 10000,
+    timeout: 5000,
     headers: {
         Authorization: `Bearer ${token}`
-    }
+    },
 });
 
 export const API = {

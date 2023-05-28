@@ -4,6 +4,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import App from './App';
 import CountryDetails from './CountryDetails';
 import './index.css';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -17,7 +17,7 @@ code {
         monospace;
 }
 
-:root{
+:root {
     --primary-blue: #3786FB;
 }
 
@@ -43,10 +43,14 @@ code {
     border-radius: 30px;
     border: 3px solid var(--primary-blue);
 }
+
 /* Custom Scrollbar */
 
-.tab-selected{
+.tab-selected {
     border-color: var(--primary-blue) !important;
     color: var(--primary-blue);
 }
 
+.dimmer img{
+    background-color: rgba(255, 255, 255, 0.5);
+}
