@@ -62,6 +62,8 @@ export const getWeatherIcon = (text, size) => {
         { text: 'Patchy light snow with thunder', icon: <TiWeatherSnow size={size} color="#9ac0e6" /> },
         { text: 'Moderate or heavy snow with thunder', icon: <TiWeatherSnow size={size} color="#9ac0e6" /> },
     ];
-    const icon = weatherConditions.filter(item => item.text === text);
-    return icon.length === 0 ? { text, icon: <TiWeatherPartlySunny size={size} color="#9ac0e6" />} : icon[0].icon;
+    const matchedCondition = weatherConditions.find(condition => condition.text === text);
+
+    if (matchedCondition) return matchedCondition.icon;
+    return <TiWeatherPartlySunny size={size} color="#9ac0e6" />;
 }
