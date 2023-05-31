@@ -1,9 +1,10 @@
 import React from 'react'
+import WeatherSlider from './Weather-Slider'
 
-const WeatherInsights = () => {
+const WeatherInsights = ({ forecast }) => {
     return (
-        <div>
-            Weather Insights
+        <div className='w-full py-10'>
+            <WeatherSlider hourly={forecast.hourly_update}/>
         </div>
     )
 }
