@@ -62,7 +62,7 @@ const CountryDetails = () => {
                                     <div className='w-full'>
                                         {tab === 'Country Info' && <CountryInfo country={country} />}
                                         {tab === 'Time Zone' && <CountryTimeZone timezone={country.timezone} />}
-                                        {tab === 'Weather Forecast' && <WeatherForecast weather={country.weather} />}
+                                        {tab === 'Weather Forecast' && <WeatherForecast weather={country.weather} country={country.name} capital={country.capital_city} />}
                                         {tab === 'Weather Insights' && <WeatherInsights />}
                                     </div>
                                 </div>

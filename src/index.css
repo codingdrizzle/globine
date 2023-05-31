@@ -51,6 +51,13 @@ code {
     color: var(--primary-blue);
 }
 
-.dimmer img{
-    background-color: rgba(255, 255, 255, 0.5);
+
+.slide1{
+    background-image: url('./assets/cloudy.jpg');
+}
+.slide2{
+    background-image: url('./assets/sky.jpg');
+}
+.slide3{
+    background-image: url('./assets/skies.jpg');
 }

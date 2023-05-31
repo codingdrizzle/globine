@@ -1,35 +1,52 @@
 import React, { useEffect, useRef, useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import cloud1 from '../assets/cloudy.jpg'
-import cloud2 from '../assets/sky.jpg'
-import cloud3 from '../assets/skies.jpg'
-
 import { Autoplay, Pagination, Navigation, EffectFade } from "swiper";
 
 const CloudSlider = () => {
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    const handleSlideChange = (swiper) => {
+        setActiveIndex(swiper.activeIndex);
+    };
+
+    useEffect(() => {
+        if (activeIndex === 2) {
+            // Reached the last slide, reset to the first slide
+            setTimeout(() => {
+                setActiveIndex(0);
+            }, 2500);
+        }
+    }, [activeIndex]);
+
     return (
         <>
             <Swiper
-                effect={'fade'}
-                spaceBetween={30}
+                effect={"fade"}
+
                 centeredSlides={true}
                 autoplay={{
-                    delay: 2500,
-                    disableOnInteraction: false
+                    delay: 300000,
+                    disableOnInteraction: false,
                 }}
                 navigation={false}
-                modules={[Autoplay, EffectFade,]}
+                modules={[Autoplay, EffectFade]}
                 scrollbar={false}
-                className="w-full h-1/2 absolute z-0"
+                className="w-full h-full absolute z-0"
+                onSlideChange={handleSlideChange}
+                initialSlide={activeIndex}
             >
-                <SwiperSlide className="h-96 object-contain dimmer"><img src={cloud1} alt="Cloud" /></SwiperSlide>
-                <SwiperSlide className="h-96 object-contain dimmer"><img src={cloud2} alt="Cloud" /></SwiperSlide>
-                <SwiperSlide className="h-96 object-contain dimmer"><img src={cloud3} alt="Cloud" /></SwiperSlide>
+                <SwiperSlide className="object-cover bg-no-repeat bg-center slide1 h-full">
+                    <div class="absolute inset-0 bg-white opacity-80"></div>
+                </SwiperSlide>
+                <SwiperSlide className="object-cover bg-no-repeat bg-center slide2 h-full">
+                    <div class="absolute inset-0 bg-white opacity-80"></div>
+                </SwiperSlide>
+                <SwiperSlide className="object-cover bg-no-repeat bg-center slide3 h-full">
+                    <div class="absolute inset-0 bg-white opacity-80"></div>
+                </SwiperSlide>
             </Swiper>
         </>
     );
-}
-
+};
 
 export default CloudSlider;
