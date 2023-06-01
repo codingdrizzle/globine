@@ -10,7 +10,7 @@ function Tabs({ tabs, getTab }) {
     };
 
     return (
-        <div className="flex justify-start w-full min-h-10">
+        <div className="flex justify-start w-full min-h-10 overflow-hidden">
             <div className="flex border-b-2 border-gray-300 w-full">
                 {tabs.map((tab, index) => (
                     <button

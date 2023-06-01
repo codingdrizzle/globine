@@ -24,7 +24,7 @@ code {
 /* Custom Scrollbar */
 * {
     scrollbar-width: thin;
-    scrollbar-color: var(--primary-blue)
+    scrollbar-color: var(--primary-blue);
 }
 
 /* Chrome, Edge, and Safari */
@@ -60,10 +60,16 @@ code {
 }
 
 .swiper {
-   padding: 30px 0 !important;
+   padding: 30px 10px !important;
+   margin: auto !important;
 }
 
 .swiper-slide {
     width: 250px !important;
-    box-shadow: 1px 1px 12px #ececec;
+    box-shadow: 1px 1px 12px #dbdbdb;
+    height: auto !important;
+}
+
+#fahrenheit{
+    transform: rotate(180deg);
 }
