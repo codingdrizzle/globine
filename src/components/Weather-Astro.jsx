@@ -8,7 +8,7 @@ import { MdTimer } from 'react-icons/md'
 const WeatherAstro = ({ astro }) => {
     return (
         <div className='w-[95%] md:w-full mx-auto px-[10px] flex flex-col md:flex-row gap-12'>
-            {/*<div className=' w-full md:w-[50%] flex flex-col h-full gap-3'>
+            <div className=' w-full md:w-[50%] flex flex-col h-full gap-3'>
                 <div className="flex w-full items-center">
                     <h1 className="text-medium font-semibold text-xl flex items-center gap-3"><BsMoonStarsFill color='#00036b' className='text-[40px] md:text-[60px]' />Moon Phase</h1>
                     <span className='font-extrabold mx-5 text-2xl'>:</span>
@@ -27,7 +27,7 @@ const WeatherAstro = ({ astro }) => {
                         astro.is_moon_up === 1 ? <h1 className="text-medium font-semibold text-lg flex justify-center">Moon is up ✅</h1> : ''
                     }
                 </div>
-            </div>*/}
+            </div>
             <div className='grid grid-cols-2 grid-rows-2 w-full md:w-[50%]'>
                 <div className="w-full h-full border-[#00036b] flex flex-col p-3">
                     <div className='flex flex-col items-center justify-center gap-1'>
