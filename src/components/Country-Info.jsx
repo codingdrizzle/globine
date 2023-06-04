@@ -20,7 +20,7 @@ const CountryInfo = ({country}) => {
             <Tags value={country.population} label_name={'Population'} label_icon={<BsFillPeopleFill size={25} />} />
             <Tags value={country.time_zone} label_name={'Time Zone'} label_icon={<MdTimer size={25} />} />
             <Tags value={country.currency?.name} currency={<span><span className='w-8 h-8 bg-red-400/30 border-[1px] border-red-500 inline-flex justify-center items-center rounded-lg text-xl font-bold'>{country.currency?.symbol}</span></span>} label_name={'Currency'} label_icon={<BsCurrencyExchange size={25} />} />
-            <Tags value={country.languages?.map((item, index, array) => (<span>{item}{index !== array.length - 1 && ' | '}</span>))} label_name={'Language(s)'} label_icon={<TbLanguageHiragana size={25} />} />
+            <Tags value={country.languages?.map((item, index, array) => (<span key={index}>{item}{index !== array.length - 1 && ' | '}</span>))} label_name={'Language(s)'} label_icon={<TbLanguageHiragana size={25} />} />
         </div>
     )
 }

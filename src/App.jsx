@@ -53,6 +53,7 @@ function App() {
         <>
         <Meta title={'Globine | Home'} description={'Explorer countries globally, Country Details and Information, Weather Forecast and Insights, Time Zone and more.'} canonical_path={'/'}/>
             <Layout searchTrigger={handleSearch} handleFiterSelect={handleFilterSelect}>
+                <h1 className="absolute -top-7 right-0 text-base font-medium text-[#00036b]">Total of {countries.length}</h1>
                 {
                     loading ? <Loader /> :
                         errorMessage === 'Network Error' ? <ErrorWizard src={noInternet} message={errorMessage} revert={'Reload'} /> :
@@ -63,23 +64,23 @@ function App() {
                                             countries
                                                 .sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0)
                                                 .filter((country) => country.name.toLowerCase().includes(searchQuery.trim().toLowerCase()))
-                                                .map((country) => <CountryCard country={country} />)
+                                                .map((country, index) => <CountryCard country={country} key={index}/>)
                                             :
                                             filter === 'All' ?
                                                 countries
-                                                    .map((country) => <CountryCard country={country} />)
+                                                    .map((country, index) => <CountryCard country={country} key={index}/>)
                                                 :
                                                 searchQuery.length !== 0 && filter !== 'All' ?
                                                     countries
                                                         .sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0)
                                                         .filter((country) => country.region === filter)
                                                         .filter((country) => country.name.toLowerCase().includes(searchQuery.trim().toLowerCase()))
-                                                        .map((country) => <CountryCard country={country} />)
+                                                        .map((country, index) => <CountryCard country={country} key={index}/>)
                                                     :
                                                     countries
                                                         .sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0)
                                                         .filter((country) => country.region === filter)
-                                                        .map((country) => <CountryCard country={country} />)
+                                                        .map((country, index) => <CountryCard country={country} key={index}/>)
                                     }
                                 </div>
                 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { getWeatherIcon } from '../helpers/Map-Weather-Icon'
 import { getWindDirection } from '../helpers/Wind-Direction'
 import { GiNightSky } from 'react-icons/gi'
@@ -11,7 +11,7 @@ import { SiTailwindcss } from 'react-icons/si'
 const WeatherForecast = ({ weather, country, capital }) => {
     return (
         <div className='relative w-full h-[700px] rounded-lg md:h-96 custom-bg mb-5 md:m-0 md:mt-1'>
-                <div class=" absolute inset-0 bg-white opacity-70 w-full h-full"></div>
+                <div className=" absolute inset-0 bg-white opacity-70 w-full h-full"></div>
             <div className='absolute top-0 z-20 flex flex-col md:flex-row w-full h-full '>
                 <div className='flex flex-col justify-around h-full items-center md:flex-[5]'>
                         <div className='flex flex-col justify-center items-center w-full'>

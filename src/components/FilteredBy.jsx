@@ -6,7 +6,7 @@ const FilteredBy = ({ handleFiterSelect }) => {
   return (
       <div className="relative w-full md:w-auto flex justify-between items-center space-x-2">
           <span className='flex justify-center items-center text-base'><HiFilter size={25} color={'#3786FB'}/>Filtered by</span>
-          <select onChange={(e) => handleFiterSelect(e)} class="appearance-none py-2 px-4 pr-8 rounded leading-tight bg-transparent border border-[#d8dae5] hover:border-[#8F95B2] focus:outline-[#3786FB] focus:ring-[#75a9f7] focus:ring cursor-pointer">
+          <select onChange={(e) => handleFiterSelect(e)} className="appearance-none py-2 px-4 pr-8 rounded leading-tight bg-transparent border border-[#d8dae5] hover:border-[#8F95B2] focus:outline-[#3786FB] focus:ring-[#75a9f7] focus:ring cursor-pointer">
               <option value={'All'}>All</option>
               <option value={'Africa'}>Africa</option>
               <option value={'Americas'}>Americas</option>

@@ -37,10 +37,7 @@ const CountryDetails = () => {
     }, [params.id])
 
     useEffect(() => {
-        console.log(country)
     }, [country])
-
-
 
     return (
         <>
